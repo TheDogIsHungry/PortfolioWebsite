@@ -1,10 +1,3 @@
-/* =====================================================================
-   PORTFOLIO — shared design system
-   Palette: near-black ink + single signal teal, with a spectrum gradient
-   reserved as the site's signature mark (nods to the wavelength work
-   of silicon photonics).
-   ===================================================================== */
-
 :root {
   /* surfaces */
   --bg: #0a0d12;
@@ -176,11 +169,55 @@ section { padding: 96px 0; }
   mask-image: radial-gradient(ellipse 60% 60% at 70% 20%, #000 0%, transparent 70%);
   opacity: .5;
 }
-.hero-inner { position: relative; display: flex; flex-direction: column; gap: 22px; max-width: 760px; }
+.hero-inner {
+  position: relative; display: flex; align-items: center; justify-content: space-between;
+  gap: 56px;
+}
+.hero-copy { display: flex; flex-direction: column; gap: 22px; max-width: 620px; flex: 1 1 480px; }
 .hero h1 { font-size: clamp(38px, 6vw, 62px); }
 .hero .lede { font-size: 19px; }
 .hero-actions { display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap; }
 .hero-caption { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted-2); margin-top: -6px; }
+
+/* ---------- hero photo: circular frame with a rotating spectrum ring ---------- */
+.hero-photo { flex: 0 0 auto; display: flex; justify-content: center; }
+.photo-frame {
+  position: relative;
+  width: clamp(160px, 20vw, 260px);
+  height: clamp(160px, 20vw, 260px);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.photo-frame::before {
+  content: "";
+  position: absolute; inset: -6px; z-index: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    var(--violet), var(--blue), var(--signal), var(--green), var(--amber), var(--red), var(--violet));
+  animation: spin-ring 8s linear infinite;
+}
+@keyframes spin-ring { to { transform: rotate(360deg); } }
+.photo-img, .photo-fallback {
+  position: absolute; inset: 0; z-index: 1;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+.photo-fallback {
+  display: none; /* shown automatically via onerror if no photo is found yet */
+  align-items: center; justify-content: center;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  color: var(--muted-2);
+}
+.photo-fallback svg { width: 36%; height: 36%; }
+
+@media (max-width: 860px) {
+  .hero-inner { flex-direction: column-reverse; text-align: center; gap: 36px; }
+  .hero-copy { max-width: 100%; align-items: center; }
+  .hero-actions { justify-content: center; }
+}
 
 /* ---------- datasheet strip ---------- */
 .datasheet {
