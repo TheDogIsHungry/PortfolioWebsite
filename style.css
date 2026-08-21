@@ -43,6 +43,8 @@ html { scroll-behavior: smooth; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
+
+
 body {
   margin: 0;
   background: var(--bg);
@@ -56,7 +58,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { margin: 0; padding: 0; list-style: none; }
 h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; line-height: 1.15; font-weight: 600; letter-spacing: -0.01em; }
-p { margin: 0; }
+p { margin: 0; text-align: justify; text-align-last: left; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
 button, input, textarea { font-family: inherit; font-size: inherit; color: inherit; }
 
 /* visible focus everywhere */
@@ -381,9 +383,55 @@ section { padding: 96px 0; }
 .page-head .mark { margin-bottom: 18px; }
 .page-head h1 { font-size: clamp(32px, 4.4vw, 46px); margin-bottom: 14px; }
 
+/* ---------- back link ---------- */
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 13px; color: var(--muted);
+  margin-bottom: 22px; transition: color var(--dur) var(--ease);
+}
+.back-link:hover { color: var(--signal); }
+.back-link svg { width: 14px; height: 14px; }
+
+/* ---------- project detail / document-style content ---------- */
+.doc-content { max-width: 900px; margin: 0 auto; color: var(--muted); font-size: 16.5px; line-height: 1.75; }
+/* this block is long (full article length), so the scroll-reveal fade-in never gets far
+   enough into view to trigger near the top of the page — show it immediately instead */
+.doc-content.reveal { opacity: 1; transform: none; }
+.doc-content .lede { font-size: 18.5px; margin-bottom: 4px; }
+.doc-content p { margin-bottom: 20px; }
+.doc-content strong { color: var(--ink); font-weight: 600; }
+.doc-content h2 { font-family: var(--font-display); color: var(--ink); font-size: 24px; margin: 48px 0 16px; }
+.doc-content h2:first-of-type { margin-top: 8px; }
+.doc-content .card-media { margin: 8px 0 36px; }
+.card-media figure { margin: 0; }
+.card-media figcaption { margin-top: 10px; font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); text-align: center; }
+.doc-figure { margin: 36px 0; }
+.doc-figure figcaption { margin-top: 10px; font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); text-align: center; }
+.doc-quote {
+  margin: 40px 0; padding-left: 22px; border-left: 2px solid var(--signal);
+  font-family: var(--font-display); font-size: 20px; line-height: 1.5; color: var(--ink);
+}
+.doc-quote cite { display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 12.5px; color: var(--muted-2); font-style: normal; }
+
+/* project detail header: auto-detected as any page-head containing a back-link.
+   Centers the mark/eyebrow/title/tags and puts the back-link at the very top, above the
+   light bar — done entirely through CSS (:has), no HTML markup or class changes required. */
+.page-head:has(.back-link) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.page-head:has(.back-link) .back-link { order: 0; justify-content: center; margin: 0 0 20px; }
+.page-head:has(.back-link) .mark { order: 1; margin-left: auto; margin-right: auto; margin-bottom: 14px; }
+.page-head:has(.back-link) .eyebrow { order: 2; margin-bottom: 6px; }
+.page-head:has(.back-link) h1 { order: 4; margin-bottom: 14px; }
+.page-head:has(.back-link) .card-tags { order: 5; justify-content: center; }
+
 @media (max-width: 640px) {
   .page-head { text-align: center; }
   .page-head .mark { margin-left: auto; margin-right: auto; }
+  .page-head .card-tags { justify-content: center; }
   .resume-head { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
 }
 

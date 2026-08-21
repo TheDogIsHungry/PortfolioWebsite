@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-Optical Ring Resonator Logic Gates</title>
+<meta name="description" content="Ring resonator logic gate project page">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0d12'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%235eead4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script src="../script.js"></script>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="../index.html" class="brand"><span class="brand-dot"></span>David Zambrano</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" aria-current="page">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="https://www.linkedin.com/in/davidizambrano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/TheDogIsHungry" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://dot.cards/davidzambrano" target="_blank" rel="noopener noreferrer">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container page-head">
+    <a class="back-link" href="../projects.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to projects
+    </a>
+    <div class="mark"></div>
+    <span class="eyebrow" style="margin-bottom:10px; display:block;">Project</span>
+    <h1>All-Optical Ring Resonator Logic Gates</h1>
+    <div class="card-tags" style="margin-top:10px;">
+      <span class="tag">Python</span>
+      <span class="tag">Tidy3D</span>
+      <span class="tag">KLayout</span>
+    </div>
+  </div>
+
+  <section style="padding-top:16px;">
+    <div class="container">
+      <div class="doc-content reveal">
+
+        <h2>Overview</h2>
+        <p> As Moore's law fades into irrelevancy, alternative solutions to computing become increasingly necessary. Following the work done by <a href="https://www.linkedin.com/in/darian-brokaw-00036022a/" target="_blank" rel="noopener noreferrer"><u><strong style="color:var(--ink)">Darian Brokaw</strong></u></a></a>, my contribution was to:​</p>
+        <p>1. Implement NOT, NOR, &amp; NAND logic gates into a GDSII layout using KLayout</p>
+        <p> 2. Recreate said logic gates from scratch, but in Python (using Tidy3D library), for portable and repeatable results.</p>
+
+
+        <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/RingResonatorInverter.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>RingResonatorInverter</span>
+            </div>
+          </div>
+          <figcaption>Ring Resonator Inverter (NOT gate)</figcaption>
+
+        </figure>
+         <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/RingResonatorNorGate.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>RingResonatorNORGate</span>
+            </div>
+          </div>
+          <figcaption>Ring Resonator NOR Gate</figcaption>
+
+        </figure>
+         <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/RingResonatorNANDgate.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>RingResonatorNANDGate</span>
+            </div>
+          </div>
+          <figcaption>Ring Resonator NAND Gate</figcaption>
+        </figure>
+
+        <h2>Background</h2>
+        <p>CMOS (Complementary Metal Oxide Semiconductor) devices still serve as the primary technology for the computing industry. They have many advantages, including a strongly established manufacturing infrastructure which we seek to take advantage of.
+           As these devices become more and more difficult to shrink, and as diminishing returns become more &amp; more apparent, alternatives must be explored.
+        </p>
+        <p>One such alternative is the use of photonics (light), rather than electrics, as the operating medium by which logical operations are performed. While current implementations do exist, they are limited in several ways we seek to improve upon.
+          Namely, the need for active tuning in the form of heat or voltage controls, and the lack of cascadability. As such, the goal was to create all-optical logic gates that 
+          would solve these issues as well being derived from microring resonators.
+        </p>
+        <h2>Design &amp; Method</h2>
+        <p>The basic principle of operation of the inverter is destructive interference, in which the light coupled to the bottom drop port becomes out of phase and inverts the input signal (coming from vertical waveguide). In this way, we create an all-optical inverter.​</p>
+        <p>This can be justified with standard microring transfer-function theory + coupled-mode theory (CMT), and subsequently interpreting the device as an optical comparator whose output flips when the effective detuning crosses a threshold.</p>
+        
+      </figure>
+         <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/InverterSchem.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>RingResonatorNANDGate</span>
+            </div>
+          </div>
+          <figcaption>Ring Resonator Inverter Schematic</figcaption>
+        </figure>
+         <p> The schematic above demonstrates the operation principle. The input waveguide labeled "Bias" is always on, and serves as an analogue to a VDD in a MOSFET design.
+          The input source labeled "In" is the primary input which can be toggled on and off. In the OFF state, the W ring (which is always on resonance) couples to the drop port (labeled "out")
+          providing a high through transmission. In the ON state, the W ring is on resonance, affecting the W rings effective response which results a low through transmission on the drop port.
+          In this way, we create a sharp function of detuning in which:
+         </p>
+         <p>
+          <strong>- Input “1”</strong> → W-ring <strong><u>ON</u></strong> resonance (<strong><u>LOW</u></strong> through transmission).
+         </p>
+         <p> 
+          <strong>- Input “0”</strong> → W-ring <strong><u>OFF</u></strong> resonance (<strong><u>HIGH</u></strong> through transmission).
+         </p>
+         <p>Thus creating a photonic logical inverter. With this scheme, we are also able to create higher level functions:</p>
+
+        <div class="card-media">
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/NORschem.png" alt="Simulated mode profile" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>NOR Gate Schematic</figcaption>
+          </figure>
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/NANDschem.png" alt="Fabricated device under microscope" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>NAND Gate Schematic</figcaption>
+          </figure>
+        </div>
+
+        <p>By approximating an "OR" gate with a Y-branch waveguide, we are able to construct a NOR &amp; a NAND gate with the inverter. The boolean expression for these
+          gates in this scheme is as follows: </p>
+          <p><strong>- NOT(OR(A, B)) = NOR(A,B)</strong></p>
+          <p><strong>- OR(NOT(A), NOT(B)) = NAND(A,B) </strong></p>  
+          <p> Essentially "NOTing the OR" &amp; "ORing the NOT", as it were.</p>
+        
+
+        <h2>Results</h2>
+        <p>Simulation results (Conducted within Tidy3D) verify the boolean expressions for each gate.</p>
+
+         <div class="card-media">
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/InverterResults_1.png" alt="Simulated mode profile" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>NOT Gate Result: Input = 1</figcaption>
+          </figure>
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/InverterResult_0.png" alt="Fabricated device under microscope" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>NOT Gate Result: Input = 0</figcaption>
+          </figure>
+        </div>
+
+        <p>  Viewing the E-field intensity allows us to visualize the logic inversion,
+          in which the input signal (vertical waveguide) is inverted when measuring from the left side of of the bottom drop waveguide. In the Input = 1 case, we see a low 
+          field intensity as displayed by the heatmap, effectively being logic '0'. When Input = 0, we see a higher intensity logic '1'.
+        </p>
+
+        </figure>
+         <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/NORGateResults_01.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>RingResonatorNANDGate</span>
+            </div>
+          </div>
+          <figcaption>NOR Gate Result: A = 0, B = 1</figcaption>
+        </figure>
+
+      <div class="card-media">
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/NORGateResults_11.png" alt="Simulated mode profile" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>NOR Gate Result: A = 1, B = 1</figcaption>
+          </figure>
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/NORGateResults_00.png" alt="Fabricated device under microscope" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>NOR Gate Result: A = 0, B = 0</figcaption>
+          </figure>
+        </div>
+
+        <p>  Viewing the E-field intensity for the NOR gate reveals the proper output as well. In any case where input A or B equals '1', we observe a '0' output on the 
+          drop port. Similar to the NOT gate, we observe a '1' or high drop port transmission when no input '1' exists, in this case with inputs A and B.
+        </p>
+
+        </figure>
+         <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/NANDGateResults_00.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>RingResonatorNANDGate</span>
+            </div>
+          </div>
+          <figcaption>NAND Gate Result: A = 0, B = 0</figcaption>
+        </figure>
+
+      <div class="card-media">
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/NANDGateResults_01.png" alt="Simulated mode profile" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>NAND Gate Result: A = 0, B = 1</figcaption>
+          </figure>
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/NANDGateResults_11.png" alt="Fabricated device under microscope" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>NAND Gate Result: A = 1, B = 1</figcaption>
+          </figure>
+        </div>
+
+
+        <p>  NAND gates results demonstrate the expected output as well. Only when both inputs are '1' will the output be '0'.
+          Any case in which A or B equals '0', we will observe a high drop port transmission '1'. 
+        </p>
+
+
+        <h2>Next Steps</h2>
+        <p>While NAND &amp; NOR serve as universal gates, thereby making any boolean expression possible, the issue of scale and footprint still exists. If a 
+          logic gate (Such as XOR) can be constructed in the same manner as our NAND & NOR, this would be more efficient than stringing multiple of either of those two
+          universal gates together. Future work, then, is exploring the design gates such as OR, AND, and XOR in the pursuit of an all-optical ALU. Additionally, 
+          a majority gate is being investigated through the modification of the NOR gate, to create another universal gate option. 
+        </p>
+
+        <div class="card-links" style="margin-top:8px;">
+          <a href="https://opg.optica.org/viewmedia.cfm?r=1&uri=CLEO_SI-2026-JW1.47&seq=0" target="_blank" rel="noopener">Read the publication
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div style="display: flex; justify-content: center;">
+    <p class="footer-copy">David Zambrano · <span data-year></span> </p>
+  </div>
+</footer>
+
+</body>
+</html>
