@@ -288,6 +288,12 @@ section { padding: 96px 0; }
 .media-fallback svg { width: 26px; height: 26px; }
 @media (max-width: 560px) { .card-media { grid-template-columns: 1fr; } }
 
+/* modifier — pair with .media-slot, e.g. class="media-slot no-crop", to show a photo at its
+   own natural aspect ratio instead of the site-wide 14:9 crop. Keeps the same rounded border,
+   background, and placeholder-fallback behavior; only the sizing/cropping changes. */
+.media-slot.no-crop { aspect-ratio: auto; min-height: 160px; }
+.media-slot.no-crop img { height: auto; }
+
 .card {
   border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius);
   padding: 26px; display: flex; flex-direction: column; gap: 14px;

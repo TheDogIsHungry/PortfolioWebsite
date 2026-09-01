@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom 3D Printed Nerf Blaster "Warthog"</title>
+<meta name="description" content="custom nerf blaster">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0d12'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%235eead4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script src="../script.js"></script>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="../index.html" class="brand"><span class="brand-dot"></span>David Zambrano</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" aria-current="page">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="https://www.linkedin.com/in/davidizambrano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/TheDogIsHungry" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://dot.cards/davidzambrano" target="_blank" rel="noopener noreferrer">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container page-head">
+    <a class="back-link" href="../projects.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to projects
+    </a>
+    <div class="mark"></div>
+    <span class="eyebrow" style="margin-bottom:10px; display:block;">Project</span>
+    <h1>Custom 3D Printed Nerf Blaster "Warthog"</h1>
+    <div class="card-tags" style="margin-top:10px;">
+      <span class="tag">KiCad</span>
+      <span class="tag">PCB Design & Layout</span>
+      <span class="tag">C / C++</span>
+    </div>
+  </div>
+
+  <section style="padding-top:16px;">
+    <div class="container">
+      <div class="doc-content reveal">
+
+        <h2>Design Goals</h2>
+        <p> Our goal was to create a highly customizable brushless blaster platform, capable of high performance within all categories of foam flinging. With Warthog,
+          the user is in complete control of the functionality of their blaster, capable of manually tweaking settings such as 
+          dart velocity, fire rate, fire mode, all within the confines of the blaster itself without the need for disassembly.
+        </p>
+
+
+        <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/Warthog/IsoNerf.png" alt="CADWarthog" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>CAD drawing of Warthog</figcaption>
+
+        <p> By utilizing a simple 128x64px OLED screen, we created a simple user interface for setting control. A rotary encoder offers dual functionality for 
+          menu traversal through its sweeping and button press function. 
+        </p>
+        </figure>
+
+         <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/Warthog/OLED.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>RingResonatorNORGate</span>
+            </div>
+          </div>
+          <figcaption>OLED Screen</figcaption>
+
+
+        <h2>Technical Overview</h2>
+        <p> The user interacts with the blaster much like any other. The trigger, when pressed, spins the motors to the desired RPM and fires a dart. The process by 
+          which this happens, however, was carefully designed for maximum efficiency within the confines of our design goals. 
+        </p>
+        <p> To start, it is important to briefly cover the propulsion method of our design. Within the Nerf hobby, Warthog would fall into the flywheel blaster category,
+          in which two diametrically opposed flywheels spin to propel foam darts forward. 
+        </p>
+
+         <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/Warthog/FlywheelDemo.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>‎ </figcaption>
+        <p>
+          The motors we selected are of the brushless variety, demanding much higher hardware and software requirements then brushed motors, but offering
+          an extreme amount of control in comparison. With these motors and the accompanying electronic speed controller (ESC), we can achieve a high performance within all dart velocity 
+          categories commonly found within the Nerf hobby (Typically ranging from 120 to 220 Feet Per Second (FPS)).
+        </p>
+
+        <p>
+          Along with the motors must be a device to push the darts into the flywheels, and in our case we selected a pusher solenoid. This kind of solenoid operates by
+          activating a strong magnetic field within a coil which forces a pusher rod forward. A spring at the end of the device forces the pusher to retract once the magnetic 
+          field collapses. 
+        </p>
+
+        <div class="card-media">
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/Warthog/SolenoidDiagram.png" alt="Simulated mode profile" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>Pusher Solenoid Schematic</figcaption>
+          </figure>
+          <figure>
+            <div class="media-slot">
+              <img src="../Images/Warthog/PusherSolenoid.jpg" alt="Fabricated device under microscope" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <figcaption>Generic Pusher Solenoid Example</figcaption>
+          </figure>
+        </div>
+
+        <p>
+          We chose this device as its operation is simple, needing just power and ground to activate, while retracting on its own once it is no longer powered.
+          The primary consideration with this device, however, is the rapid dissipation of the magnetic field needed to sustain higher fire rates, which is discussed later.
+        </p>
+        <p>
+          Syncing the motor spinup and solenoid actuation is critical and performed within a closed loop. We achieve this by monitoring the real time RPM of the motors and the active position of the solenoid.
+          RPM readouts are gathered through the ESC telemetry, utilizing the onboard signals. Since the solenoid is purely electromechanical, however, an external monitoring system was
+          needed. For this, we chose to use hall effect sensors on either side of the solenoid. By attaching small magnets to the tip and rear of the rod, we can accurately 
+          keep track of whether the solenoid is in its resting or actuated position. 
+        </p>
+        <p> In practice, a simplified sequence flow from when the user presses the trigger to when a dart is fired (in semi-auto) is as follows:</p>
+
+        <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/Warthog/SemiAutoDiagram.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>‎ </figcaption>
+          
+
+
+        <p> In full-auto, it changes to:</p>
+
+        <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/Warthog/FullAutoCycle.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+        <figcaption>‎ </figcaption>
+
+
+        <p>
+          An important detail to mention is that our blaster follows a queue system for firing darts in semi-auto and burst modes, in which each trigger pull is accounted for:
+          if you press the trigger 5 times, 5 increments of darts will be fire (1 for semi-auto or 2 to 5 in burst). For example, in semi-auto mode, pressing the trigger 5 times
+          will add 5 darts to the queue, which will fire at the specified fire rate saved within the settings. If the blaster is set to 2 round burst, 10 darts will fire instead.
+          This ensures smooth operation, unaffected by the internal operations of the blaster.
+        </p>
+
+        <h2>Technical Details</h2>
+        <p>Warthog is designed around a 4-layer PCB, running on an RP2040 MCU with the necessary components for functionality. These include the external crystal 
+          (ABM8-272-T3, Same as the Raspberry Pi Pico), 2MB of QPSI flash storage (W25Q16JVSS), and the necessary decoupling capacitors. 
+          The PCB includes all essential functions of the blaster.</p>
+
+        
+          
+        
+      </figure>
+         <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/Warthog/PCB.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>RingResonatorNANDGate</span>
+            </div>
+          </div>
+          <figcaption>PCB Design Schematic (KiCad)</figcaption>
+        </figure>
+         <p> 
+          On the right side of the PCB are the input power pads for a 4S LiPo battery. As the battery voltage (fully charged) is 16.8V, a buck converter + LDO power circuit is included to safely 
+          power the rest of the board. The buck converter handles the bulk of the step down, bringing the voltage down to 5V. On the top right of the board exists the USB-C receptacle, which when plugged in 
+          provides 5V as well. Two Schottky diodes isolate these 5V sources. In this configuration, both the battery and USB-C can be plugged in for debugging purposes.
+        
+          </p>
+          <p>
+          This 5V source is then fed into an LDO (NCP1117) to step down to 3.3V smoothly. This voltage is needed for the RP2040 and it's surrounding low-power circuitry.
+          Pheripheral wise, we utilize just USB for programming and I2C for the OLED screen. All other signals (such as from the trigger) are simply HIGH or LOW (with
+          us preferring a internal pullup on the digital IO pins.) Each of these signals comes externally from onboard JST-SH connectors, which includes the rotary enconder,
+          OLED screen, both hall effect sensors, the three position switch, and the trigger. The large 8-pin JST connector is for the ESC, which receives commands from the RP2040 via the Dshot protocol,
+          and sends telemetry (such as RPM) to the RP2040 for internal processing.
+          </p>
+
+          <p>
+            The final function of the board is to directly drive the solenoid pusher (fed by the output power pads on the left side of the board). As mentioned before, solenoids, as with all inductors, resist current changes. For our purposes, the main challenge is dissapating the magnetic field that builds in the coil
+            when charged as quickly as possible, as this physically impedes the retraction of the pusher rod. 
+          </p>
+        <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/Warthog/FastFieldCollapseSchem.png" alt="Moiré ring resonator device schematic" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+        <figcaption>‎ </figcaption>
+
+        <p>We do this by utilizing a modified half H-bridge which equates to 3 mosfets, 2 diodes, and a few resistors. We take the 3.3V output of a GPIO pin on
+          the RP2040 ("Solenoid_Driver_Gate") as the input to a gate driver (MCP1416T-E/OT). Said gate driver takes the 5V buck converter output 
+          as its VDD, which then outputs to our mosfets ("Driver_Output"). This allows us to drive the gate pin of each mosfet with 5V rather than 3.3V, which brings 
+          our mosfets closer to their saturation mode of operation. Otherwise (which was physically tested), we would experience major overheating rather quickly.
+          In total, this setup translates to a rapid decay circuit in which the built-up current within the solenoid coil is rapidly discharged as opposed to relying on just a flyback diode to passively dissipate current within its loop.
+          The theory for this topology was borrowed from TorukMakto, with further detail and reading <a href="https://torukmakto4.blogspot.com/2021/11/thoughts-on-solenoid-power-stage.html" target="_blank" rel="noopener noreferrer"><strong><u>here.</u></strong></a>
+          </p>
+
+
+
+        <h2>Next Steps</h2>
+        <p> Current results exist within a test bench, pending PCB order fulfillment. Once done, the CAD will be finalized and a complete blaster shown.
+          The plan with this blaster is to sell it as a DIY kit, including the board, hardware, and other supporting components. 
+        </p>
+
+        <div class="card-links" style="margin-top:8px;">
+          <a href="https://github.com/TheDogIsHungry/WarthogBlaster" target="_blank" rel="noopener">View the GitHub development
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div style="display: flex; justify-content: center;">
+    <p class="footer-copy">David Zambrano · <span data-year></span> </p>
+  </div>
+</footer>
+
+</body>
+</html>
