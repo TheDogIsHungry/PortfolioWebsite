@@ -71,15 +71,16 @@
             </div>
           </div>
           <figcaption>CAD drawing of Warthog</figcaption>
+        </figure>
 
         <p> By utilizing a simple 128x64px OLED screen, we created a simple user interface for setting control. A rotary encoder offers dual functionality for 
           menu traversal through its sweeping and button press function. 
         </p>
-        </figure>
+        
 
          <figure class="doc-figure">
-          <div class="media-slot">
-            <img src="../Images/Warthog/OLED.png" alt="Moiré ring resonator device schematic" loading="lazy"
+          <div class="media-slot no-crop">
+            <img src="../Images/Warthog/OLED.png" alt="OLED" loading="lazy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="media-fallback">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -87,7 +88,7 @@
             </div>
           </div>
           <figcaption>OLED Screen</figcaption>
-
+         </figure>
 
         <h2>Technical Overview</h2>
         <p> The user interacts with the blaster much like any other. The trigger, when pressed, spins the motors to the desired RPM and fires a dart. The process by 
@@ -99,13 +100,13 @@
 
          <figure class="doc-figure">
           <div class="media-slot">
-            <img src="../Images/Warthog/FlywheelDemo.png" alt="Moiré ring resonator device schematic" loading="lazy"
+            <img src="../Images/Warthog/FlywheelDemo.png" alt="FlywheelDemo" loading="lazy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="media-fallback">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             </div>
           </div>
-          <figcaption>‎ </figcaption>
+         </figure>
         <p>
           The motors we selected are of the brushless variety, demanding much higher hardware and software requirements then brushed motors, but offering
           an extreme amount of control in comparison. With these motors and the accompanying electronic speed controller (ESC), we can achieve a high performance within all dart velocity 
@@ -121,7 +122,7 @@
         <div class="card-media">
           <figure>
             <div class="media-slot">
-              <img src="../Images/Warthog/SolenoidDiagram.png" alt="Simulated mode profile" loading="lazy"
+              <img src="../Images/Warthog/SolenoidDiagram.png" alt="SolenoidDiagram" loading="lazy"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
               <div class="media-fallback">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -130,9 +131,10 @@
             </div>
             <figcaption>Pusher Solenoid Schematic</figcaption>
           </figure>
+
           <figure>
             <div class="media-slot">
-              <img src="../Images/Warthog/PusherSolenoid.jpg" alt="Fabricated device under microscope" loading="lazy"
+              <img src="../Images/Warthog/PusherSolenoid.jpg" alt="Solenoid" loading="lazy"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
               <div class="media-fallback">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -157,28 +159,26 @@
 
         <figure class="doc-figure">
           <div class="media-slot no-crop">
-            <img src="../Images/Warthog/SemiAutoDiagram.png" alt="Moiré ring resonator device schematic" loading="lazy"
+            <img src="../Images/Warthog/SemiAutoDiagram.png" alt="SemiAutoDiagram" loading="lazy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="media-fallback">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             </div>
           </div>
-          <figcaption>‎ </figcaption>
-          
+        </figure>
 
 
         <p> In full-auto, it changes to:</p>
 
         <figure class="doc-figure">
           <div class="media-slot no-crop">
-            <img src="../Images/Warthog/FullAutoCycle.png" alt="Moiré ring resonator device schematic" loading="lazy"
+            <img src="../Images/Warthog/FullAutoCycle.png" alt="FullAutoDiagram" loading="lazy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="media-fallback">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             </div>
           </div>
-        <figcaption>‎ </figcaption>
-
+        </figure>
 
         <p>
           An important detail to mention is that our blaster follows a queue system for firing darts in semi-auto and burst modes, in which each trigger pull is accounted for:
@@ -192,13 +192,11 @@
           (ABM8-272-T3, Same as the Raspberry Pi Pico), 2MB of QPSI flash storage (W25Q16JVSS), and the necessary decoupling capacitors. 
           The PCB includes all essential functions of the blaster.</p>
 
-        
-          
-        
-      </figure>
+       
+    
          <figure class="doc-figure">
           <div class="media-slot">
-            <img src="../Images/Warthog/PCB.png" alt="Moiré ring resonator device schematic" loading="lazy"
+            <img src="../Images/Warthog/PCB.png" alt="PCB" loading="lazy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="media-fallback">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -207,6 +205,7 @@
           </div>
           <figcaption>PCB Design Schematic (KiCad)</figcaption>
         </figure>
+
          <p> 
           On the right side of the PCB are the input power pads for a 4S LiPo battery. As the battery voltage (fully charged) is 16.8V, a buck converter + LDO power circuit is included to safely 
           power the rest of the board. The buck converter handles the bulk of the step down, bringing the voltage down to 5V. On the top right of the board exists the USB-C receptacle, which when plugged in 
@@ -227,13 +226,13 @@
           </p>
         <figure class="doc-figure">
           <div class="media-slot no-crop">
-            <img src="../Images/Warthog/FastFieldCollapseSchem.png" alt="Moiré ring resonator device schematic" loading="lazy"
+            <img src="../Images/Warthog/FastFieldCollapseSchem.png" alt="FFC" loading="lazy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="media-fallback">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             </div>
           </div>
-        <figcaption>‎ </figcaption>
+        </figure>
 
         <p>We do this by utilizing a modified half H-bridge which equates to 3 mosfets, 2 diodes, and a few resistors. We take the 3.3V output of a GPIO pin on
           the RP2040 ("Solenoid_Driver_Gate") as the input to a gate driver (MCP1416T-E/OT). Said gate driver takes the 5V buck converter output 

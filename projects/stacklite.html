@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StackLite Alarm System</title>
+<meta name="description" content="custom nerf blaster">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0d12'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%235eead4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script src="../script.js"></script>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="../index.html" class="brand"><span class="brand-dot"></span>David Zambrano</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" aria-current="page">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="https://www.linkedin.com/in/davidizambrano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/TheDogIsHungry" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://dot.cards/davidzambrano" target="_blank" rel="noopener noreferrer">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container page-head">
+    <a class="back-link" href="../projects.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to projects
+    </a>
+    <div class="mark"></div>
+    <span class="eyebrow" style="margin-bottom:10px; display:block;">Project</span>
+    <h1>StackLite Alarm System</h1>
+    <div class="card-tags" style="margin-top:10px;">
+      <span class="tag">C / C++</span>
+      <span class="tag">C#</span>
+      <span class="tag">Embedded Programming</span>
+      <span class="tag">.NET Framework</span>
+    </div>
+  </div>
+
+  <section style="padding-top:16px;">
+    <div class="container">
+      <div class="doc-content reveal">
+
+        <h2>Background</h2>
+        <p> Dredging vehicle operators work 'blind' due to the nature of their environment. Operating a heavy piece of machinery deep underwater poses many challenges,
+          above all safety. As technology has improved and new solutions arrive, conditions improve, but can never totally alleviate safety concerns. 
+           <a href="https://www.ntsb.gov/news/events/Pages/2021-DCA20FM026-BMG.aspx" target="_blank" rel="noopener noreferrer"><u>Many tradegies</u></a> have occurred in which dredging operators and other around them are killed, always due to negligence. This project serves to provide additional
+           awareness to a dredge by keeping track of the position of a tool in real time, to avoid pre-determined hazard areas.
+        </p>
+
+        <h2>Overview</h2>
+        <p> The Alarm System is designed to be a hardware extension of existing dredge software, which 
+            tracks the distance to restricted areas in real time. It provides continuous feedback to the 
+            operator of their danger status, through the use of a stack light. The logic of the system is 
+            handled by a PLC, which takes input from the dredge software via Ethernet TCP connection, 
+            and outputs to the stack light from an expansion module. The stack light has 3 main indicator 
+            lights that will be display to reflect the current condition: 
+        </p>
+        <p><span style="color: green;">GREEN</span> indicates the operator is within a safe operating distance away from the restricted area.  </p>
+        <p><span style="color: #FFBF00;">YELLOW</span> indicates the operator is approaching the restricted area and should begin performing 
+            maneuvers to settle back to a safe operating zone.  </p>  
+        <p> <span style="color: red;">RED</span> indicates the operator is dangerously close to a restricted area and must immediately 
+            move away to avoid imminent danger.</p>
+        <p>Other indicator lights including <span style="color: cornflowerblue;">BLUE</span> and <strong>WHITE</strong> indicate an ongoing Ethernet &amp; power connection respectively.</p>
+
+
+
+        <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/StackLite/ColorIndicators.png" alt="LightIndication" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>Breakdown of stack light indicators</figcaption>
+        </figure>
+
+        <p> The PLC and supporting modules are from the P1 series, which allow microcontroller programming (used in this project) 
+          in addition to the traditional ladder logic style. The system runs on 24VDC across all modules to directly interface with the stack light. 
+        </p>
+        
+
+         <figure class="doc-figure">
+          <div class="media-slot">
+            <img src="../Images/StackLite/Components.jpg" alt="PLC" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>PLC</span>
+            </div>
+          </div>
+          <figcaption>P1AM-100 (main control module) &amp; supporting modules</figcaption>
+        </figure>
+
+
+
+        <h2>Technical Overview</h2>
+        <p> This hardware solutions ultimately serves as an extension of existing dredge software. Such software, such as the Trimble Marine Construction software,
+          is capable of taking in real world guidance and positioning data from Real-Time Kinematic (RTK) antennas for processing. From here, an output can be sent over Ethernet
+          to the PLC for processing.
+        </p>
+
+
+         <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/StackLite/TMCDemo.png" alt="TMC" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>TMC demonstrating proximity warning simulation. <a href="https://measutronics.com/solutions/machine-guidance-positioning/" target="_blank" rel="noopener noreferrer"><u>(Credit: Measutronics Corporation)</u></a></figcaption>
+         </figure>
+
+        <p>
+          From here the processing is as simple as displaying a specific light depending on the decided exclusion zone. Determining and setting that zone, however, is the primary
+          feature of the device. This is done through a custom Windows Form application (C#) that allows a user to configure multiple settings including units,
+          green, yellow, or red zones, and blink settings.
+        </p>
+
+         <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/StackLite/GUI.png" alt="TMC" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>Sample of GUI layout (non-proprietary) </figcaption>
+         </figure>
+        
+
+        <p>
+          In the scenario shown above, the light will remain solid <span style="color: green;">GREEN</span> when the distance to the exclusion zone is between 50-100 U.S. Survey Feet,
+          blink <span style="color: #FFBF00;">YELLOW</span> 5x a second along with a buzzer that blinks at the same frequency between 20-50 U.S. Survey Feet, and flash
+          <span style="color: red">RED</span> 1x a second with a continous buzzer when
+          between 0-20 U.S. Survey Feet.
+          After inputting settings and the target IP address (P1AM-100), the settings are sent to the P1AM-100 which processes and reboots itself.
+           Afterwards it will abide by the settings as specified in the GUI during normal operation. A link to a video demonstration can be found
+           <a href="https://www.linkedin.com/posts/davidizambrano_recently-i-tested-the-functionality-of-the-activity-7220475099978575872-QPWP/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD5o-54BLGFnLt1OQkhp9i-O49sz8Cco2Rg" target="_blank" rel="noopener noreferrer"><strong><u>here.</u></strong></a>
+        </p>
+
+
+        <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/StackLite/Pose.png" alt="HeyNow" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+        </figure>
+
+        <p>
+          In total, I am very proud of this project. I believe it represents my dedication as an engineer to provide solutions that benefit the world in a direct 
+          and thoughtful way. This is a safety device intended to save lives, and an answer to a specific need so that a tradgedy may never occur again.  
+        </p>
+          
+
+
+        <div class="card-links" style="margin-top:8px;">
+          <a href="https://www.linkedin.com/posts/davidizambrano_last-week-i-wrapped-up-my-internship-with-activity-7228562354752364544-xS4F?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD5o-54BLGFnLt1OQkhp9i-O49sz8Cco2Rg" target="_blank" rel="noopener">Link to post
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div style="display: flex; justify-content: center;">
+    <p class="footer-copy">David Zambrano · <span data-year></span> </p>
+  </div>
+</footer>
+
+</body>
+</html>
