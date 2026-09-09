@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RISC-V 32I FPGA</title>
+<meta name="description" content="custom nerf blaster">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0d12'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%235eead4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script src="../script.js"></script>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="../index.html" class="brand"><span class="brand-dot"></span>David Zambrano</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" aria-current="page">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="https://www.linkedin.com/in/davidizambrano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/TheDogIsHungry" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://dot.cards/davidzambrano" target="_blank" rel="noopener noreferrer">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container page-head">
+    <a class="back-link" href="../projects.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to projects
+    </a>
+    <div class="mark"></div>
+    <span class="eyebrow" style="margin-bottom:10px; display:block;">Project</span>
+    <h1>RISC-V 32I Processor on DE-10 Lite FPGA</h1>
+    <div class="card-tags" style="margin-top:10px;">
+    <span class="tag">Verilog / SystemVerilog</span>
+    <span class="tag">Intel Quartus Prime</span>
+    <span class="tag">FPGA</span>
+    <span class="tag">Computer Architecture</span>
+
+    </div>
+  </div>
+
+  <section style="padding-top:16px;">
+    <div class="container">
+      <div class="doc-content reveal">
+
+        <h2>Background</h2>
+        <p> This FPGA exploration was part of my Computer Engineering Design Lab 2 course, in which we heavily studied computer architecture. Here, we implemented
+          a RV32I single-cycle core with 23 total instructions including arithmetic and branch logic instructions. This implemented onto the DE-10 Lite FPGA, on the 
+          Intel Quartus Prime design software. The final goal was to calculate the Fibonacci sequence (starting from 0 & 1) for 15 iterations. This was done recursively 
+          using branch logic instructions.
+        </p>
+
+
+        <h2>Technical Overview</h2>
+
+        <p> The FPGA is programmed in such a way that allows a user to increment the program counter (PC) to step through each execution instruction of the program.
+          To do so, the on-board buttons and switches are utilized for control, while the LEDs display either the current PC value or a value stored in memory:
+        </p>
+
+        <p><strong>Key[0]:</strong> Resets the Program Counter. </p>
+        <p><strong>Key[1]:</strong> Increments the Program Counter. </p>
+        <p><strong>Sw[9]:</strong> <u>ON:</u> LEDs displays the Program Counter <u>OFF:</u> LEDs displays the contents of the memory address selected based on the switches. </p>
+        <p><strong>SW[7:0]:</strong> Select which memory address is selected to display data on LEDs when SW[9] is <u>ON</u></p>
+
+        <p> With this scheme, the user can view how the RV32I recursively calculates the Fibonacci sequence one instruction at at time.
+        </p>
+
+        <p> For loading a program, a simple .txt file is loaded as a ROM where each instruction is pasted as machine code (fixed 32-bit length). We used the online simulator 
+          <a href="https://venus.kvakil.me/" target="_blank" rel="noopener noreferrer"><strong><u>Venus</u></strong></a> to write a RISC-V assembly program, then
+          used the built-in converter to get the machine code. From here, we could upload to the DE-10 from Intel Quartus and begin incrementing the PC.
+        </p>
+
+
+
+
+        <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/DE10Lite.jpg" alt="DE10" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>Intel DE-10 Lite FPGA</figcaption>
+        </figure>
+
+        <h2>Technical Overview</h2>
+
+        <p> For this project, our goal was to implement 10 arithmetic and branch logic instructions within the RV32I single-cycle core. These included xor, xori, sll, slli,
+          srl, slli, srl, srli, sra, bne, blt, & bge. Our ALU handled some of these instructions directly, while others required our datapath to determine the next PC depending on branch logic outputs.
+        </p>
+
+        <p>Below is our assembly program:</p>
+       
+        <div class="doc-code">
+          <div class="doc-code-label">RV32I Fibnacci(15) Assembly</div>
+          <pre><code>
+addi x31, x0, 16      # Fibb(15) 
+addi x5, x0, 0        # increment 
+addi x6, x0, 0        # x6 is result register
+addi x7, x0, 1        # x
+addi x8, x0, 0        # y
+
+recheck:
+
+bne x5, x31, loop    # if less than 16 iteration, go to loop
+beq x5, x31, exit    # if not, go to exit. (break)
+
+loop:
+
+sw x8, 0(x29)        # store in memory location on loop
+addi x9, x7, 0       # x9 is temp, temp = x 
+add x7, x7, x8       # x = x + y 
+addi x8, x9, 0       # y = temp 
+
+addi x5, x5, 1       # increment++ 
+slli x29, x5, 2      # increment * 4 to put into memory 
+
+bne x5, x31, recheck # go back to main check 
+
+exit: </code></pre>
+        </div>
+
+        <p>In the way this is written, each calculated Fibonacci number writes from 0x0 to 0xF in order. Typically this may cause memory corruptions within 
+          Venus and some other RISC-V simulators may display, in which the program writes over itself, but in real world testing our program is stored away from these 
+          memory addresses within the RAM stack. Solving this within the simulator involves just changing the offset of register x29 to 64.
+        </p>
+
+         <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/RISC-V/RiscV.png" alt="mycompoot" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>Intel Quartus Prime Top RTL Layer</figcaption>
+        </figure>
+
+        <p>The RTL viewer within Quartus allows us to see our RV32I machine in full. Above is the topmost RTL layer where we see how the internal clock as well as the 
+          physical inputs (buttons &amp; switches) interact with the SystemVerilog modules.
+        </p>
+
+          <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/RISC-V/2nd.png" alt="mycompoot" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>Intel Quartus Prime Single Core Layer</figcaption>
+        </figure>
+
+        <p>Deeper into the RTL viewer we can see the RV32I core itself, consisting of the main controller and the datapath.
+        </p>
+
+        <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/RISC-V/3rd.png" alt="mycompoot" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>Intel Quartus Prime Controller Layer</figcaption>
+        </figure>
+
+        <p>Within the controller we have our binary instruction inputs which are decoded for the determining ALU, write, and branch operations.
+        </p>
+        
+        <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/RISC-V/4th.png" alt="mycompoot" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>Intel Quartus Prime Datapath Layer</figcaption>
+        </figure>
+
+        <p>The datapath then contains the ALU itself and writes to memory accordingly, as well as setting the PC. From here, the cycle repeats!
+        </p>
+        
+        
+
+
+          
+
+        <h2>Results</h2>
+
+        <figure class="doc-figure">
+          <div class="doc-gif">
+            <img src="../Images/RISC-V/RV32Cycle.gif" alt="LOOPY" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>Simulation Result: RISC-V architecture executing instructions (PC loops from 24 to 60 to calculate Fibonacci(15)). </figcaption>
+        </figure>
+
+      <p> The program when executed in full runs through ~168 total cycles to calculate Fibb(0) through Fibb(15). The majority of those cycles involve branching 
+        from recheck to loop and vice versa. The above gif demonstrates the PC moving from 0 -> 60, then from 24 -> 60 and 60 -> 24. Important to note is that this diagram
+        shows a pipelined CPU, whereas ours operates in single-cycle format. This is merely meant to show our PC in action.
+
+      <p> Below shows our pipelining diagram for the first 2 instructions, in which we can see how this is strictly as single-cycle CPU, in which each clock cycle goes through all 5 stages of the pipeline
+        before another instruction is fetched.
+      </p>
+
+      <figure class="doc-figure">
+          <div class="media-slot no-crop">
+            <img src="../Images/RISC-V/Pipeline.png" alt="PIPE" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="media-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <figcaption>Single-cycle pipeline.</figcaption>
+      </figure>
+
+      </p>
+      <p>Below is a full dump of the RV32I log per instruction:</p>
+
+      <div class="doc-code" data-src="../files/RISC-V_log.txt">
+          <div class="doc-code-label">RV32I Log</div>
+          <pre><code>Failed to load.</code></pre>
+        </div>
+<!-- 
+      <p> Below shows a video demonstration of the physical operation of the FPGA:
+
+      </p>
+
+
+
+      <figure class="doc-figure">
+          <div class="doc-video">
+            <video controls playsinline poster="../Images/DE10Lite.jpg">
+              <source src="../Images/RISC-V/RISC-V CPU.mp4" type="video/mp4">
+              Your browser doesn't support embedded video. <a href="moire-ring-demo.mp4">Download the video</a> instead.
+            </video>
+          </div>
+          <figcaption>RV32I on DE-10 Lite Video Demontration</figcaption>
+        </figure>
+
+      -->
+
+
+
+        <div class="card-links" style="margin-top:8px;">
+          <a href="https://github.com/DriftLoki/RV32I-Processor" target="_blank" rel="noopener">Link to GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div style="display: flex; justify-content: center;">
+    <p class="footer-copy">David Zambrano · <span data-year></span> </p>
+  </div>
+</footer>
+
+</body>
+</html>

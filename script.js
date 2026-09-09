@@ -47,22 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => el.classList.add('in'));
   }
 
-  /* contact form (no backend by default — see contact.html comments
-     for how to wire this up to a form service like Formspree) */
-  const form = document.querySelector('#contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const status = form.querySelector('.form-status');
-      const action = form.getAttribute('action') || '';
-      if (action.includes('YOUR_FORM_ID')) {
-        status.textContent = 'Form isn\u2019t connected yet \u2014 see the comment in contact.html to hook this up to Formspree, EmailJS, or your own backend. For now, use the email link to the left.';
-        status.classList.remove('ok');
-      } else {
-        status.textContent = 'Thanks \u2014 your message is on its way.';
-        status.classList.add('ok');
-        form.reset();
-      }
-    });
-  }
+  document.querySelectorAll('.doc-code[data-src]').forEach(box => {
+    const src = box.getAttribute('data-src');
+    const codeEl = box.querySelector('code');
+    if (!codeEl) return;
+    fetch(src)
+      .then(res => { if (!res.ok) throw new Error('not found'); return res.text(); })
+      .then(text => { codeEl.textContent = text; })
+      .catch(() => { /* keep the manually pasted fallback content as-is */ });
+  });
 });
+
