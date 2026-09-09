@@ -59,7 +59,7 @@
         <h2>Background</h2>
         <p> Dredging vehicle operators work 'blind' due to the nature of their environment. Operating a heavy piece of machinery deep underwater poses many challenges,
           above all safety. As technology has improved and new solutions arrive, conditions improve, but can never totally alleviate safety concerns. 
-           <a href="https://www.ntsb.gov/news/events/Pages/2021-DCA20FM026-BMG.aspx" target="_blank" rel="noopener noreferrer"><u>Many tradegies</u></a> have occurred in which dredging operators and other around them are killed, always due to negligence. This project serves to provide additional
+           <a href="https://www.ntsb.gov/news/events/Pages/2021-DCA20FM026-BMG.aspx" target="_blank" rel="noopener noreferrer"><u>Many tragedies</u></a> have occurred in which dredging operators and other around them are killed, always due to negligence. This project serves to provide additional
            awareness to a dredge by keeping track of the position of a tool in real time, to avoid pre-determined hazard areas.
         </p>
 
@@ -69,7 +69,7 @@
             operator of their danger status, through the use of a stack light. The logic of the system is 
             handled by a PLC, which takes input from the dredge software via Ethernet TCP connection, 
             and outputs to the stack light from an expansion module. The stack light has 3 main indicator 
-            lights that will be display to reflect the current condition: 
+            lights that are used to to reflect the current safety condition: 
         </p>
         <p><span style="color: green;">GREEN</span> indicates the operator is within a safe operating distance away from the restricted area.  </p>
         <p><span style="color: #FFBF00;">YELLOW</span> indicates the operator is approaching the restricted area and should begin performing 
@@ -111,8 +111,8 @@
 
 
         <h2>Technical Overview</h2>
-        <p> This hardware solutions ultimately serves as an extension of existing dredge software. Such software, such as the Trimble Marine Construction software,
-          is capable of taking in real world guidance and positioning data from Real-Time Kinematic (RTK) antennas for processing. From here, an output can be sent over Ethernet
+        <p> This hardware solution ultimately serves as an extension of existing dredge software. Such software, such as the Trimble Marine Construction software,
+          is capable of taking in real world guidance and positioning data from Real-Time Kinematic (RTK) antennas. From here, an output can be sent over Ethernet
           to the PLC for processing.
         </p>
 
@@ -129,7 +129,7 @@
          </figure>
 
         <p>
-          From here the processing is as simple as displaying a specific light depending on the decided exclusion zone. Determining and setting that zone, however, is the primary
+          From here the processing is as simple as outputting to a specific light depending on the current value and its relation to the exclusion zone. Determining and setting that zone, however, is the primary
           feature of the device. This is done through a custom Windows Form application (C#) that allows a user to configure multiple settings including units,
           green, yellow, or red zones, and blink settings.
         </p>
@@ -156,6 +156,9 @@
            <a href="https://www.linkedin.com/posts/davidizambrano_recently-i-tested-the-functionality-of-the-activity-7220475099978575872-QPWP/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD5o-54BLGFnLt1OQkhp9i-O49sz8Cco2Rg" target="_blank" rel="noopener noreferrer"><strong><u>here.</u></strong></a>
         </p>
 
+        <p> This device also has a range of uses. In some scenarios, an operator may want to stay within a certain area (such as core drilling). The device can be configured in the same GUI
+          to consider values too large to be dangerous, hence the option to change from 'Too small' to 'Too large'.
+        </p>
 
         <figure class="doc-figure">
           <div class="media-slot no-crop">
@@ -169,7 +172,7 @@
 
         <p>
           In total, I am very proud of this project. I believe it represents my dedication as an engineer to provide solutions that benefit the world in a direct 
-          and thoughtful way. This is a safety device intended to save lives, and an answer to a specific need so that a tradgedy may never occur again.  
+          and thoughtful way. This is a safety device intended to save lives, and an answer to a specific need so that a tragedy may never occur again.  
         </p>
           
 

@@ -47,6 +47,7 @@
     <div class="card-tags" style="margin-top:10px;">
       <span class="tag">Python</span>
       <span class="tag">Tidy3D</span>
+      <span class="tag">Lumerical FDTD</span>
       <span class="tag">KLayout</span>
       <span class="tag">SiEPIC</span>
     </div>
@@ -60,6 +61,7 @@
         <p> As Moore's law fades into irrelevancy, alternative solutions to computing become increasingly necessary. Following the work done by <a href="https://www.linkedin.com/in/darian-brokaw-00036022a/" target="_blank" rel="noopener noreferrer"><u><strong style="color:var(--ink)">Darian Brokaw</strong></u></a></a>, my contribution was to:​</p>
         <p>1. Implement NOT, NOR, &amp; NAND logic gates into a GDSII layout using KLayout</p>
         <p> 2. Recreate said logic gates from scratch, but in Python (using Tidy3D library), for portable and repeatable results.</p>
+        <p> 3. Iterate additional logic gates within Lumerical FDTD & Tidy3D.</p>
 
 
         <figure class="doc-figure">
@@ -168,7 +170,7 @@
         
 
         <h2>Results</h2>
-        <p>Simulation results (Conducted within Tidy3D) verify the boolean expressions for each gate.</p>
+        <p>Simulation results (Conducted within Tidy3D FDTD) verify the Boolean expressions for each gate.</p>
 
          <div class="card-media">
           <figure>
@@ -207,7 +209,7 @@
         </figure>
 
         <p>  Viewing the E-field (Ex, Ey, Ez) intensity allows us to visualize the logic inversion,
-          in which the input signal (vertical waveguide) is inverted when measuring from the left side of of the bottom drop waveguide. In the Input = 1 case, we see a low 
+          in which the input signal (vertical waveguide) is inverted when measuring from the left side of the bottom drop waveguide. In the Input = 1 case, we see a low 
           field intensity as displayed by the heatmap, effectively being logic '0'. When Input = 0, we see a higher intensity logic '1'.
         </p>
 
@@ -307,13 +309,13 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             </div>
         </div>
-        <figcaption>Inverter SEM</figcaption>
+        <figcaption>Inverter SEM (Credit: Applied Nanotools).</figcaption>
 
 
 
 
         <h2>Next Steps</h2>
-        <p>While NAND &amp; NOR serve as universal gates, thereby making any boolean expression possible, the issue of scale and footprint still exists. If a 
+        <p>While NAND &amp; NOR serve as universal gates, thereby making any Boolean expression possible, the issue of scale and footprint still exists. If a 
           logic gate (Such as XOR) can be constructed in the same manner as our NAND & NOR, this would be more efficient than stringing multiple of either of those two
           universal gates together. Future work, then, is exploring the design gates such as OR, AND, and XOR in the pursuit of an all-optical ALU. Additionally, 
           a majority gate is being investigated through the modification of the NOR gate, to create another universal gate option. 

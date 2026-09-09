@@ -59,7 +59,7 @@
 
         <h2>Background</h2>
         <p> This FPGA exploration was part of my Computer Engineering Design Lab 2 course, in which we heavily studied computer architecture. Here, we implemented
-          a RV32I single-cycle core with 23 total instructions including arithmetic and branch logic instructions. This implemented onto the DE-10 Lite FPGA, on the 
+          a RV32I single-cycle core with 23 total instructions including arithmetic and branch logic instructions. This was implemented onto the DE-10 Lite FPGA, on the 
           Intel Quartus Prime design software. The final goal was to calculate the Fibonacci sequence (starting from 0 & 1) for 15 iterations. This was done recursively 
           using branch logic instructions.
         </p>
@@ -76,7 +76,7 @@
         <p><strong>Sw[9]:</strong> <u>ON:</u> LEDs displays the Program Counter <u>OFF:</u> LEDs displays the contents of the memory address selected based on the switches. </p>
         <p><strong>SW[7:0]:</strong> Select which memory address is selected to display data on LEDs when SW[9] is <u>ON</u></p>
 
-        <p> With this scheme, the user can view how the RV32I recursively calculates the Fibonacci sequence one instruction at at time.
+        <p> With this scheme, the user can view how the RV32I core recursively calculates the Fibonacci sequence one instruction at at time.
         </p>
 
         <p> For loading a program, a simple .txt file is loaded as a ROM where each instruction is pasted as machine code (fixed 32-bit length). We used the online simulator 
@@ -100,14 +100,14 @@
 
         <h2>Technical Overview</h2>
 
-        <p> For this project, our goal was to implement 10 arithmetic and branch logic instructions within the RV32I single-cycle core. These included xor, xori, sll, slli,
-          srl, slli, srl, srli, sra, bne, blt, & bge. Our ALU handled some of these instructions directly, while others required our datapath to determine the next PC depending on branch logic outputs.
+        <p> For this project, our goal was to implement 10 additional arithmetic and branch logic instructions within the RV32I single-cycle core. These included xor, xori, sll, slli,
+          srl, slli, srl, srli, sra, bne, blt, & bge. Our ALU handled some of these instructions directly, while others required our datapath to determine the next PC value depending on branch logic outputs.
         </p>
 
         <p>Below is our assembly program:</p>
        
         <div class="doc-code">
-          <div class="doc-code-label">RV32I Fibnacci(15) Assembly</div>
+          <div class="doc-code-label">RV32I Fibonacci(15) Assembly</div>
           <pre><code>
 addi x31, x0, 16      # Fibb(15) 
 addi x5, x0, 0        # increment 
@@ -135,8 +135,8 @@ bne x5, x31, recheck # go back to main check
 exit: </code></pre>
         </div>
 
-        <p>In the way this is written, each calculated Fibonacci number writes from 0x0 to 0xF in order. Typically this may cause memory corruptions within 
-          Venus and some other RISC-V simulators may display, in which the program writes over itself, but in real world testing our program is stored away from these 
+        <p>In the way this is written, each calculated Fibonacci number writes from 0x0 to 0xF in order, then exits. This may cause memory corruptions within 
+          Venus and some other RISC-V simulators, in which the program writes over itself, but in real world testing our program is stored away from these 
           memory addresses within the RAM stack. Solving this within the simulator involves just changing the offset of register x29 to 64.
         </p>
 

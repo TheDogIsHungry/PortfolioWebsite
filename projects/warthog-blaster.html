@@ -214,15 +214,15 @@
           </p>
           <p>
           This 5V source is then fed into an LDO (NCP1117) to step down to 3.3V smoothly. This voltage is needed for the RP2040 and it's surrounding low-power circuitry.
-          Pheripheral wise, we utilize just USB for programming and I2C for the OLED screen. All other signals (such as from the trigger) are simply HIGH or LOW (with
-          us preferring a internal pullup on the digital IO pins.) Each of these signals comes externally from onboard JST-SH connectors, which includes the rotary enconder,
+          Peripheral wise, we utilize just USB for programming and I2C for the OLED screen. All other signals (such as from the trigger) are simply HIGH or LOW (with
+          us preferring a internal pullup on the digital IO pins). Each of these signals comes externally from onboard JST-SH connectors, which includes the rotary enconder,
           OLED screen, both hall effect sensors, the three position switch, and the trigger. The large 8-pin JST connector is for the ESC, which receives commands from the RP2040 via the Dshot protocol,
           and sends telemetry (such as RPM) to the RP2040 for internal processing.
           </p>
 
           <p>
-            The final function of the board is to directly drive the solenoid pusher (fed by the output power pads on the left side of the board). As mentioned before, solenoids, as with all inductors, resist current changes. For our purposes, the main challenge is dissapating the magnetic field that builds in the coil
-            when charged as quickly as possible, as this physically impedes the retraction of the pusher rod. 
+            The final function of the board is to directly drive the solenoid pusher (fed by the output power pads on the left side of the board). As mentioned before, solenoids, as with all inductors, resist current changes. For our purposes, the main challenge is dissipating the magnetic field that builds in the coil
+            when charged as quickly as possible, as this physically impedes the retraction of the pusher rod once deactivated. 
           </p>
         <figure class="doc-figure">
           <div class="media-slot no-crop">
@@ -237,8 +237,8 @@
         <p>We do this by utilizing a modified half H-bridge which equates to 3 mosfets, 2 diodes, and a few resistors. We take the 3.3V output of a GPIO pin on
           the RP2040 ("Solenoid_Driver_Gate") as the input to a gate driver (MCP1416T-E/OT). Said gate driver takes the 5V buck converter output 
           as its VDD, which then outputs to our mosfets ("Driver_Output"). This allows us to drive the gate pin of each mosfet with 5V rather than 3.3V, which brings 
-          our mosfets closer to their saturation mode of operation. Otherwise (which was physically tested), we would experience major overheating rather quickly.
-          In total, this setup translates to a rapid decay circuit in which the built-up current within the solenoid coil is rapidly discharged as opposed to relying on just a flyback diode to passively dissipate current within its loop.
+          our mosfets closer to their saturation mode of operation. Otherwise (which was physically tested), we would experience major overheating in the mosfets rather quickly.
+          In total, this setup translates to a rapid decay circuit in which the built-up current within the solenoid coil is rapidly discharged onto our battery rail as opposed to relying on just a flyback diode to passively dissipate current within its loop.
           The theory for this topology was borrowed from TorukMakto, with further detail and reading <a href="https://torukmakto4.blogspot.com/2021/11/thoughts-on-solenoid-power-stage.html" target="_blank" rel="noopener noreferrer"><strong><u>here.</u></strong></a>
           </p>
 
