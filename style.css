@@ -175,7 +175,7 @@ section { padding: 96px 0; }
   position: relative; display: flex; align-items: center; justify-content: space-between;
   gap: 56px;
 }
-.hero-copy { display: flex; flex-direction: column; gap: 22px; max-width: 620px; flex: 1 1 480px; }
+.hero-copy { display: flex; flex-direction: column; gap: 22px; max-width: 680px; flex: 1 1 480px; }
 .hero h1 { font-size: clamp(38px, 6vw, 62px); }
 .hero .lede { font-size: 19px; }
 .hero-actions { display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap; }
