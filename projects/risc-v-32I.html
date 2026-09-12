@@ -219,7 +219,7 @@ exit: </code></pre>
         from recheck to loop and vice versa. The above gif demonstrates the PC moving from 0 -> 60, then from 24 -> 60 and 60 -> 24. Important to note is that this diagram
         shows a pipelined CPU, whereas ours operates in single-cycle format. This is merely meant to show our PC in action.
 
-      <p> Below shows our pipelining diagram for the first 2 instructions, in which we can see how this is strictly as single-cycle CPU, in which each clock cycle goes through all 5 stages of the pipeline
+      <p> Below shows our pipelining diagram for the first 2 instructions, in which we can see how this is strictly a single-cycle CPU, in which each clock cycle goes through all 5 stages of the pipeline
         before another instruction is fetched.
       </p>
 
@@ -249,7 +249,7 @@ exit: </code></pre>
       </figure>
 
 
-      <p>Below is a full dump of the RV32I log per instruction for the entire program execution:</p>
+      <p>Below is a full dump of the RV32I log per cycle for the entire program execution:</p>
 
       <div class="doc-code" data-src="../files/RISC-V_log.txt">
           <div class="doc-code-label">RV32I Log</div>
