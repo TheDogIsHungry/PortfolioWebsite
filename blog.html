@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | David Zambrano</title>
+<meta name="description" content="Short posts on photonics, hardware, and whatever else comes up.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0d12'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%235eead4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script src="script.js"></script>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-dot"></span>David Zambrano</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="https://www.linkedin.com/in/davidizambrano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/TheDogIsHungry" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://dot.cards/davidzambrano" target="_blank" rel="noopener noreferrer">Contact</a>
+      <a href="blog.html" aria-current="page">Blog</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container page-head">
+    <div class="mark"></div>
+    <span class="eyebrow" style="margin-bottom:10px; display:block;">Blog</span>
+    <h1>Short notes</h1>
+    <p class="lede">Quick write-ups on whatever I'm working through or thinking about. Click on a post to expand.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="blog-list">
+
+       <details class="blog-post reveal">
+          <summary>
+            <div class="blog-post-head">
+              <h3>Discovering the EBeam (SiEPIC) PDK</h3>
+              <span class="blog-post-date">October 5, 2026</span>
+              <p class="blog-post-excerpt">Holy Cow</p>
+            </div>
+            <span class="blog-post-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </summary>
+          <div class="blog-post-body">
+            <div class="media-slot">
+              <img src="Images/BlogPhotos/SiEPIC.png" alt="[Describe the photo]" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <p style="padding: 15px 0;">
+              As part of the Phot1x UBCx course, I have installed the SiEPIC PDK into KLayout. Man. For the past 2 tapeouts, I did everything in KLayout mostly manually when it comes to 
+              alignment and such. I would export the GDSII files from Tidy3D, then import them to the layout. Since we have fabricated with Applied Nanotools, I have been using their PDK 
+              specifically for their grating coupler so we could get some experimental data. This SiEPIC PDK however takes it to another level. So many custom scripts for pin snapping, 
+              waveguide to path, many PCells, a one-button layout verification tool, the list goes on. Now, this is perfect within the confines of the course as you are expected to use their components to make some 
+              Mach-Zehnder Interferometers (MZIs). It gets dicey when you try to import custom geometry not defined in the CML, as you need to get around the verification step through adding a 
+              DevRec box and making a cell out of your geometry. Trying to put in a custom ring close to a path defined waveguide results in an overlap error (the DevRec boxes overlapping),
+              which as far as I tried, for many hours, can't be cicrumvented. So, unless my coupling gap was about 400nm, then I couldn't have my custom geometry measured. I realized, then,
+              that this PDK (as is) was most certainly made for instruction, which I think it does very effectively. Knowing what is possible in KLayout now, I aim to create some 
+              custom scripts of my own.
+            </p>
+            <div class="blog-post-tags">
+              <span class="tag">Warthog</span>
+              <span class="tag">PCB Assembly</span>
+            </div>
+          </div>
+        </details>
+
+        <details class="blog-post reveal">
+          <summary>
+            <div class="blog-post-head">
+              <h3>Finally getting the components in</h3>
+              <span class="blog-post-date">September 22, 2026</span>
+              <p class="blog-post-excerpt">Took a bit!</p>
+            </div>
+            <span class="blog-post-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </summary>
+          <div class="blog-post-body">
+            <div class="media-slot">
+              <img src="Images/BlogPhotos/WarthogAssembly.JPG" alt="[Describe the photo]" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="media-fallback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Add photo</span>
+              </div>
+            </div>
+            <p style="padding: 15px 0;">
+              We finally received the components to assemble our Warthog PCBs. We have made one so far and will begin testing once we verify all the pads look good. I bought 
+              a loupe set on amazon to check for any bridges, tombstoning, etc. If this design works as intended, we will order more, though some slight modifications to the design are needed,
+              namely a shifting some traces. In addition, after talking with a Honeywell recruiter this past career fair and showing him the design, I realized I did not include any 
+              inrush protection for the on-board buck converter. So some modifications are needed there too. As far as I've researched, the simplest strategy would be just to 
+              put a PMOS inbetween the Vin pin on the regulator with a resistor and capacitor (for an RC time constant delay) across the gate and source or drain and source to slow the slew rate
+              and mitigate massive inrush currents. Unfortunately that will mean a pretty sizable redesign and more components to wait on, but such is the process.
+            </p>
+            <div class="blog-post-tags">
+              <span class="tag">Warthog</span>
+              <span class="tag">PCB Assembly</span>
+            </div>
+          </div>
+        </details>
+
+       
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div style="display: flex; justify-content: center;">
+    <p class="footer-copy">David Zambrano · <span data-year></span> </p>
+  </div>
+</footer>
+
+</body>
+</html>
